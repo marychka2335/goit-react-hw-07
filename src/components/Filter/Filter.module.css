@@ -1,0 +1,16 @@
+.inputSearch {
+  display: block;
+
+  margin: 0px 265px 15px 265px;
+  padding: 5px 5px;
+  width: 185px;
+  border-radius: 2px;
+}
+
+.inputSearch:hover,
+.inputSearch:focus,
+.inputSearch:active {
+  font-weight: 700;
+  /* box-shadow: 10px 5px 5px grey; */
+  transform: scale(200%);
+}

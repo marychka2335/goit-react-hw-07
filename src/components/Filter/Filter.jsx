@@ -1,11 +1,11 @@
 import css from './Filter.module.css';
 import { changeFilter } from './../../redux/slices/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterValue } from './../../redux/selectors';
+import { selectFilterValue } from './../../redux/selectors';
 
 export function Filter() {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilterValue);
+  const filter = useSelector(selectFilterValue);
 
   return (
     <input

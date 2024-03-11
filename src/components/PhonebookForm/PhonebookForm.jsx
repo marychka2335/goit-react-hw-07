@@ -3,14 +3,14 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import css from './PhonebookForm.module.css';
 import { nanoid } from 'nanoid';
-import { addContact } from './../../redux/slices/contactsSlice';
+import { addContact } from './../../redux/fetchContacts';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from './../../redux/selectors';
+import { selectContacts } from './../../redux/selectors';
 
 export function PhonebookForm() {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const contacts = useSelector(getContacts);
+  const [phone, setPhone] = useState('');
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
@@ -24,9 +24,9 @@ export function PhonebookForm() {
       });
       return;
     }
-    dispatch(addContact({ id: nanoid(6), name, number }));
+    dispatch(addContact({ id: nanoid(6), name, phone }));
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   const handleChange = evt => {
@@ -36,8 +36,8 @@ export function PhonebookForm() {
         setName(value);
         break;
 
-      case 'number':
-        setNumber(value);
+      case 'phone':
+        setPhone(value);
         break;
 
       default:
@@ -64,8 +64,8 @@ export function PhonebookForm() {
         className={css.inputContact}
         onChange={handleChange}
         type="tel"
-        name="number"
-        value={number}
+        name="phone"
+        value={phone}
         pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         required
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

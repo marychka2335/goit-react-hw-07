@@ -9,12 +9,10 @@
 .formContact:focus,
 .formContact:active {
   font-weight: 700;
-  /* box-shadow: 10px 5px 5px grey; */
 }
 
 .labelContact {
   margin: 5px 15px 5px 15px;
-  /* padding: 5px 5px 20px 15px; */
 }
 
 .inputContact {
